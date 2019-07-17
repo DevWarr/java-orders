@@ -19,7 +19,8 @@ public class Agent
     public Agent()
     {}
 
-    public Agent(String agentName, String workingArea, double commission, String phone, String country) {
+    public Agent(String agentName, String workingArea, double commission, String phone, String country)
+    {
         this.agentName = agentName;
         this.workingArea = workingArea;
         this.commission = commission;

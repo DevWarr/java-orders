@@ -1,4 +1,4 @@
-package com.lambdaschool.orders.dao;
+package com.lambdaschool.orders.repos;
 
 import com.lambdaschool.orders.model.Agent;
 import org.springframework.data.repository.CrudRepository;

@@ -1,6 +1,6 @@
 package com.lambdaschool.orders.services;
 
-import com.lambdaschool.orders.dao.Customerrepo;
+import com.lambdaschool.orders.repos.Customerrepo;
 import com.lambdaschool.orders.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

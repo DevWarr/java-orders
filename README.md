@@ -58,14 +58,47 @@ Expose the following end points
 * GET /customer/order - Returns all customers with their orders
 * GET /customer/name/{custname} - Returns all orders for a particular customer based on name
 
-* POST /data/customer/new - Adds a new customer
+* POST /data/customer/new - Adds a new customer including any new orders
   * You can use the following as test data
   
-Coming soon!!!
+```
+{
+    "custname": "John",
+    "custcity": "Port Angeles",
+    "workingarea": "Washington",
+    "custcountry": "USA",
+    "grade": "1",
+    "openingamt": 70000,
+    "receiveamt": 7000,
+    "paymentamt": 777,
+    "outstandingamt": 0,
+    "phone": "5555555555",
+    "agent": {
+        "agentcode": 8
+    },
+    "orders": [
+        {
+            "ordamount": 7777,
+            "advanceamount": 777,
+            "ordersescription": "SOD"
+        }
+    ]
+}
+```
 
-* PUT /data/customer/update/{custcode} - Updates the customer based off of custcode
+* PUT /data/customer/update/{custcode} - Updates the customer based off of custcode. Does not have to do anything with Orders!
+
+You can use this data to test changing any customer's phone number
+
+```
+{
+    "phone": "5551234567"
+}
+```
+
 * DELETE /data/customer/delete/{custcode} - Deletes the customer based off of custcode
   * this should also delete the orders of that customer
 
 Stretch goals
 * /agent/{agentcode} - Deletes an agent if they are not assigned to a customer or order
+* Have PUT /data/customer/update/{custcode} add any orders sent to the end point

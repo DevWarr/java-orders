@@ -26,14 +26,21 @@ public class Customer
     private double outstandingAmt;
     private String phone;
 
-    @Column(nullable = false)
-    private List<Agent> agentCodes = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "orderNum",
+                nullable = false)
+    private Agent agent;
+
+    @OneToMany(mappedBy = "customer",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 
     // Constructors
     public Customer()
     {}
 
-    public Customer(String name, String city, String workingArea, String country, String grade, double openingAmt, double receiveAmt, double paymentAmt, double outstandingAmt, String phone)
+    public Customer(String name, String city, String workingArea, String country, String grade, double openingAmt, double receiveAmt, double paymentAmt, double outstandingAmt, String phone, Agent agent)
     {
         this.name = name;
         this.city = city;
@@ -45,6 +52,7 @@ public class Customer
         this.paymentAmt = paymentAmt;
         this.outstandingAmt = outstandingAmt;
         this.phone = phone;
+        this.agent = agent;
     }
 
     // Getters and Setters
@@ -132,11 +140,11 @@ public class Customer
         this.phone = phone;
     }
 
-    public List<Agent> getAgentCodes() {
-        return agentCodes;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setAgentCodes(List<Agent> agentCodes) {
-        this.agentCodes = agentCodes;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

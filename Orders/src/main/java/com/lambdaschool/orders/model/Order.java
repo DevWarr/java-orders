@@ -1,7 +1,6 @@
 package com.lambdaschool.orders.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,17 +14,22 @@ public class Order
 
     private double orderAmt;
     private double advanceAmt;
-    private List<Customer> customerCodes = new ArrayList<>();
     private String orderDescription;
+
+    @ManyToOne
+    @JoinColumn(name = "customerCode",
+                nullable = false)
+    private Customer customer;
 
     // Constructor
     public Order()
     {}
 
-    public Order(double orderAmt, double advanceAmt, String orderDescription) {
+    public Order(double orderAmt, double advanceAmt, String orderDescription, Customer customer) {
         this.orderAmt = orderAmt;
         this.advanceAmt = advanceAmt;
         this.orderDescription = orderDescription;
+        this.customer = customer;
     }
 
     // Getters and Setters
@@ -49,14 +53,6 @@ public class Order
 
     public void setAdvanceAmt(double advanceAmt) {
         this.advanceAmt = advanceAmt;
-    }
-
-    public List<Customer> getCustomerCodes() {
-        return customerCodes;
-    }
-
-    public void setCustomerCodes(List<Customer> customerCodes) {
-        this.customerCodes = customerCodes;
     }
 
     public String getOrderDescription() {

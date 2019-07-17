@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "agent")
 public class Agent
 {
+    // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long agentCode;
@@ -16,6 +17,7 @@ public class Agent
     private String phone;
     private String country;
 
+    // Constructors
     public Agent()
     {}
 
@@ -28,6 +30,7 @@ public class Agent
         this.country = country;
     }
 
+    // Getters and Setters
     public long getAgentCode() {
         return agentCode;
     }

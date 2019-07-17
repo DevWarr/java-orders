@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "customer")
 public class Customer
 {
-
+    // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long customerCode;
@@ -25,8 +25,11 @@ public class Customer
     private double paymentAmt;
     private double outstandingAmt;
     private String phone;
+
+    @Column(nullable = false)
     private List<Agent> agentCodes = new ArrayList<>();
 
+    // Constructors
     public Customer()
     {}
 
@@ -44,6 +47,7 @@ public class Customer
         this.phone = phone;
     }
 
+    // Getters and Setters
     public long getCustomerCode() {
         return customerCode;
     }

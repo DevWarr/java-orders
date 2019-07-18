@@ -1,14 +1,17 @@
 package com.lambdaschool.orders.services;
 
+import com.lambdaschool.orders.model.Order;
 import com.lambdaschool.orders.repos.Customerrepo;
 import com.lambdaschool.orders.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @Service(value = "customerService")
 public class CustomerServiceImpl implements CustomerService
 {
@@ -48,10 +51,30 @@ public class CustomerServiceImpl implements CustomerService
 
     }
 
+    @Transactional
     @Override
     public Customer save(Customer customer)
     {
-        return null;
+        Customer c = new Customer();
+
+        c.setName(customer.getName());
+        c.setAgent(customer.getAgent());
+        c.setCity(customer.getCity());
+        c.setCountry(customer.getCountry());
+        c.setGrade(customer.getGrade());
+        c.setOpeningAmt(customer.getOpeningAmt());
+        c.setOutstandingAmt(customer.getOutstandingAmt());
+        c.setPaymentAmt(customer.getPaymentAmt());
+        c.setPhone(customer.getPhone());
+        c.setReceiveAmt(customer.getReceiveAmt());
+        c.setWorkingArea(customer.getWorkingArea());
+
+//        for (Order o : customer.getOrders())
+//        {
+//            c.getOrders().add(new Order(o.getOrderAmt(), o.getAdvanceAmt(), o.getCustomer(), o.getOrderDescription()));
+//        }
+
+        return custRepo.save(c);
     }
 
     @Override

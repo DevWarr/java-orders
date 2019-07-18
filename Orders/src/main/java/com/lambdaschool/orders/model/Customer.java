@@ -27,7 +27,7 @@ public class Customer
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name = "orderNum",
+    @JoinColumn(name = "agentCode",
                 nullable = false)
     private Agent agent;
 
@@ -146,5 +146,13 @@ public class Customer
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
     }
 }

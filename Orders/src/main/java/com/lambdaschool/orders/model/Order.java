@@ -62,4 +62,12 @@ public class Order
     public void setOrderDescription(String orderDescription) {
         this.orderDescription = orderDescription;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }

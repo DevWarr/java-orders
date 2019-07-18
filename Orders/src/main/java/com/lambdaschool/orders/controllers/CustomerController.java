@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/customer")
 public class CustomerController
 {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping(value = "/customers/all",
+    @GetMapping(value = "/order",
                 produces = {"application/json"})
     public ResponseEntity<?> getAllCustomers()
     {

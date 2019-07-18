@@ -2,7 +2,7 @@ package com.lambdaschool.orders;
 
 import com.lambdaschool.orders.model.Agent;
 import com.lambdaschool.orders.model.Customer;
-import com.lambdaschool.orders.model.Order;
+import com.lambdaschool.orders.model.Orders;
 import com.lambdaschool.orders.repos.Agentrepo;
 import com.lambdaschool.orders.repos.Customerrepo;
 import com.lambdaschool.orders.repos.Orderrepo;
@@ -16,15 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class SeedData implements CommandLineRunner
 {
-    @Autowired
-    private CustomerService custrepos;
-
+    private Customerrepo custrepos;
     private Agentrepo agentrepos;
     private Orderrepo ordersrepos;
 
     public SeedData(Customerrepo custrepos, Agentrepo agentrepos, Orderrepo ordersrepos)
     {
-//        this.custrepos = custrepos;
+        this.custrepos = custrepos;
         this.agentrepos = agentrepos;
         this.ordersrepos = ordersrepos;
     }
@@ -70,19 +68,19 @@ public class SeedData implements CommandLineRunner
         Customer c23 = new Customer("Rangarappa", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "AAAATGF", a01);
         Customer c24 = new Customer("Venkatpati", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "JRTVFDD", a07);
         Customer c25 = new Customer("Sundariya", "Chennai", "Chennai", "India", "3", 7000.00, 11000.00, 7000.00, 11000.00, "PPHGRTS", a10);
-//
-//        Order o01 = new Order(1000.00, 600.00, c13, "SOD");
-//        Order o02 = new Order(3000.00, 500.00, c19, "SOD");
-//        Order o03 = new Order(4500.00, 900.00, c07, "SOD");
-//        Order o04 = new Order(2000.00, 400.00, c16, "SOD");
-//        Order o05 = new Order(4000.00, 600.00, c22, "SOD");
-//        Order o06 = new Order(2000.00, 300.00, c12, "SOD");
-//        Order o07 = new Order(3500.00, 2000.00, c02, "SOD");
-//        Order o08 = new Order(2500.00, 400.00, c03, "SOD");
-//        Order o09 = new Order(500.00, 100.00, c23, "SOD");
-//        Order o10 = new Order(4000.00, 700.00, c07, "SOD");
-//        Order o11 = new Order(1500.00, 600.00, c08, "SOD");
-//        Order o12 = new Order(2500.00, 400.00, c25, "SOD");
+
+        Orders o01 = new Orders(1000.00, 600.00, c13, "SOD");
+        Orders o02 = new Orders(3000.00, 500.00, c19, "SOD");
+        Orders o03 = new Orders(4500.00, 900.00, c07, "SOD");
+        Orders o04 = new Orders(2000.00, 400.00, c16, "SOD");
+        Orders o05 = new Orders(4000.00, 600.00, c22, "SOD");
+        Orders o06 = new Orders(2000.00, 300.00, c12, "SOD");
+        Orders o07 = new Orders(3500.00, 2000.00, c02, "SOD");
+        Orders o08 = new Orders(2500.00, 400.00, c03, "SOD");
+        Orders o09 = new Orders(500.00, 100.00, c23, "SOD");
+        Orders o10 = new Orders(4000.00, 700.00, c07, "SOD");
+        Orders o11 = new Orders(1500.00, 600.00, c08, "SOD");
+        Orders o12 = new Orders(2500.00, 400.00, c25, "SOD");
 
         agentrepos.save(a01);
         agentrepos.save(a02);
@@ -123,17 +121,17 @@ public class SeedData implements CommandLineRunner
         custrepos.save(c24);
         custrepos.save(c25);
 
-//        ordersrepos.save(o01);
-//        ordersrepos.save(o02);
-//        ordersrepos.save(o03);
-//        ordersrepos.save(o04);
-//        ordersrepos.save(o05);
-//        ordersrepos.save(o06);
-//        ordersrepos.save(o07);
-//        ordersrepos.save(o08);
-//        ordersrepos.save(o09);
-//        ordersrepos.save(o10);
-//        ordersrepos.save(o11);
-//        ordersrepos.save(o12);
+        ordersrepos.save(o01);
+        ordersrepos.save(o02);
+        ordersrepos.save(o03);
+        ordersrepos.save(o04);
+        ordersrepos.save(o05);
+        ordersrepos.save(o06);
+        ordersrepos.save(o07);
+        ordersrepos.save(o08);
+        ordersrepos.save(o09);
+        ordersrepos.save(o10);
+        ordersrepos.save(o11);
+        ordersrepos.save(o12);
     }
 }

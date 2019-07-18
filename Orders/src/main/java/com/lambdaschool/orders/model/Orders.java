@@ -1,11 +1,13 @@
 package com.lambdaschool.orders.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
-public class Order
+@Table(name = "orders")
+public class Orders
 {
     // Fields
     @Id
@@ -19,13 +21,14 @@ public class Order
     @ManyToOne
     @JoinColumn(name = "customerCode",
                 nullable = false)
+    @JsonIgnoreProperties("orders")
     private Customer customer;
 
     // Constructor
-    public Order()
+    public Orders()
     {}
 
-    public Order(double orderAmt, double advanceAmt, Customer customer, String orderDescription) {
+    public Orders(double orderAmt, double advanceAmt, Customer customer, String orderDescription) {
         this.orderAmt = orderAmt;
         this.advanceAmt = advanceAmt;
         this.orderDescription = orderDescription;

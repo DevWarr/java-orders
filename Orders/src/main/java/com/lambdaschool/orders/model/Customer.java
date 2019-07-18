@@ -1,5 +1,7 @@
 package com.lambdaschool.orders.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +31,14 @@ public class Customer
     @ManyToOne
     @JoinColumn(name = "agentCode",
                 nullable = false)
+    @JsonIgnoreProperties("customers")
     private Agent agent;
 
     @OneToMany(mappedBy = "customer",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Order> orders = new ArrayList<>();
+    @JsonIgnoreProperties("orders")
+    private List<Orders> orders = new ArrayList<>();
 
     // Constructors
     public Customer()
@@ -140,11 +144,11 @@ public class Customer
         this.phone = phone;
     }
 
-    public List<Order> getOrders() {
+    public List<Orders> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<Orders> orders) {
         this.orders = orders;
     }
 

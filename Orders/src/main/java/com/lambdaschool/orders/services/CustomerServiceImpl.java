@@ -1,6 +1,5 @@
 package com.lambdaschool.orders.services;
 
-import com.lambdaschool.orders.model.Order;
 import com.lambdaschool.orders.repos.Customerrepo;
 import com.lambdaschool.orders.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,14 +68,15 @@ public class CustomerServiceImpl implements CustomerService
         c.setReceiveAmt(customer.getReceiveAmt());
         c.setWorkingArea(customer.getWorkingArea());
 
-//        for (Order o : customer.getOrders())
+//        for (Orders o : customer.getOrders())
 //        {
-//            c.getOrders().add(new Order(o.getOrderAmt(), o.getAdvanceAmt(), o.getCustomer(), o.getOrderDescription()));
+//            c.getOrders().add(new Orders(o.getOrderAmt(), o.getAdvanceAmt(), o.getCustomer(), o.getOrderDescription()));
 //        }
 
         return custRepo.save(c);
     }
 
+    @Transactional
     @Override
     public Customer update(Customer customer, long id)
     {

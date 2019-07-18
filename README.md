@@ -63,24 +63,24 @@ Expose the following end points
   
 ```
 {
-    "custname": "John",
-    "custcity": "Port Angeles",
-    "workingarea": "Washington",
-    "custcountry": "USA",
+    "name": "John",
+    "city": "Port Angeles",
+    "workingArea": "Washington",
+    "country": "USA",
     "grade": "1",
-    "openingamt": 70000,
-    "receiveamt": 7000,
-    "paymentamt": 777,
-    "outstandingamt": 0,
+    "openingAmt": 70000,
+    "receiveAmt": 7000,
+    "paymentAmt": 777,
+    "outstandingAmt": 0,
     "phone": "5555555555",
     "agent": {
-        "agentcode": 8
+        "agentCode": 8
     },
     "orders": [
         {
-            "ordamount": 7777,
-            "advanceamount": 777,
-            "ordersescription": "SOD"
+            "orderAmt": 7777,
+            "advanceAmt": 777,
+            "orderDescription": "SOD"
         }
     ]
 }

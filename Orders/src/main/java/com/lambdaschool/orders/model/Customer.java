@@ -37,7 +37,7 @@ public class Customer
     @OneToMany(mappedBy = "customer",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JsonIgnoreProperties("orders")
+    @JsonIgnoreProperties("customer")
     private List<Orders> orders = new ArrayList<>();
 
     // Constructors

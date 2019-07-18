@@ -51,7 +51,7 @@ public class CustomerController
         customer = customerService.save(customer);
 
         HttpHeaders responseHeaders = new HttpHeaders();
-        URI newCustomerURI = ServletUriComponentsBuilder.fromCurrentRequest().replacePath("/name/{custname}").buildAndExpand(customer.getName()).toUri();
+        URI newCustomerURI = ServletUriComponentsBuilder.fromCurrentRequest().replacePath("/customer/name/{custname}").buildAndExpand(customer.getName()).toUri();
         responseHeaders.setLocation(newCustomerURI);
 
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);

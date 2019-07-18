@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void delete(long code) {
-
+        custRepo.deleteById(code);
     }
 
     @Transactional

@@ -58,11 +58,17 @@ public class CustomerController
     }
 
     @PutMapping(value = "/update/{custcode}",
-                consumes = {"application/json"},
-                produces = {"application/json"})
+                consumes = {"application/json"})
     public ResponseEntity<?> putCustomer(@RequestBody Customer customer, @PathVariable long custcode)
     {
         customerService.update(customer, custcode);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete/{custcode}")
+    public ResponseEntity<?> deleteCustomerById(@PathVariable long custcode)
+    {
+        customerService.delete(custcode);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
